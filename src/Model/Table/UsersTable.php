@@ -21,6 +21,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\User findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
+ * @property \Cake\ORM\Table|\Cake\ORM\Association\HasMany $HobbiesUsers
  */
 class UsersTable extends Table
 {
