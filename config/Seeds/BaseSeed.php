@@ -45,7 +45,7 @@ class BaseSeed extends AbstractSeed
                     'name' => $content,
                     'created' => $this->now,
                     'modified' => $this->now,
-                    'deleted' => $this->now,
+//                    'deleted' => $this->now,
                 ];
                 if ($tableName == 'users') {
                     $ary = array_merge($ary, [
