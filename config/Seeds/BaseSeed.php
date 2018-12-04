@@ -41,15 +41,18 @@ class BaseSeed extends AbstractSeed
             $data = [];
             $table = $this->table($tableName);
             foreach($contents as $content) {
-                $data[] = [
+                $ary = [
                     'name' => $content,
                     'created' => $this->now,
                     'modified' => $this->now,
                     'deleted' => $this->now,
                 ];
                 if ($tableName == 'users') {
-                    $data[] = ['password' => $hasher->hash($content)];
+                    $ary = array_merge($ary, [
+                        'password' => $hasher->hash($content)
+                    ]);
                 }
+                $data[] = $ary;
             }
             $table->insert($data)->save();
         }
