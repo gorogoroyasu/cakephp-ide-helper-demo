@@ -9,10 +9,15 @@ use App\Controller\AppController;
  * @property \App\Model\Table\UsersTable $Users
  *
  * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Controller\Component\ReadRequestComponent $ReadRequest
  */
 class UsersController extends AppController
 {
-
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('ReadRequest');
+    }
     /**
      * Index method
      *
@@ -21,8 +26,9 @@ class UsersController extends AppController
     public function index()
     {
         $users = $this->paginate($this->Users);
+        $get = $this->ReadRequest->isGet();
 
-        $this->set(compact('users'));
+        $this->set(compact('users', 'get'));
     }
 
     /**
