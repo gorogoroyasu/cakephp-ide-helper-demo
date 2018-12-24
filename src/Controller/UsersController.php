@@ -27,8 +27,8 @@ class UsersController extends AppController
     {
         $users = $this->paginate($this->Users);
         $get = $this->ReadRequest->isGet();
-        $hoge = "hoge";
-        $this->set(compact('users', 'hoge', 'get'));
+
+        $this->set(compact('users', 'get'));
     }
 
     /**
